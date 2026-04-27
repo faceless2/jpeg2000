@@ -52,7 +52,13 @@ public class ContainerBox extends Box {
         if (len == 0) {
             sub = new SubRandomAccessIO(in, in.length() - in.getPos());
         } else if (len == 1) {
-            throw new IOException("Long boxes not supported");
+            long longlen = in.readLong();
+            if (longlen > 0 && longlen <= Integer.MAX_VALUE) {
+                len = (int)longlen;
+                sub = new SubRandomAccessIO(in, len - 16);
+            } else {
+                throw new IOException("Unable to load box with long length " + longlen);
+            }
         } else if (len < 8) {
             throw new IOException("Invalid box length "+len);
         } else {
