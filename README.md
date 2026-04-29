@@ -9,10 +9,15 @@ Download and run "ant". The jar "target/jj2000.jar" contains the API code, the "
 
 ImageIO support
 ---------------
-The Jar supplies an ImageIO reader implementation, so reading is as simple as `javax.imageio.ImageIO.read(new File("input.jp2"))`
-(thanks to @keinhaar for the PR). The reader doesn't support metadata.
+The Jar supplies an ImageIO support, so reading is as simple as 
 
-There is currently no ImageIO writer support.
+`javax.imageio.ImageIO.read(new File("input.jp2"))`
+
+and for writing 
+
+`ImageIO.write(image, "JPEG2000", new File("image.jp2"));`
+
+(thanks to @keinhaar for the PR). Both, reader and writer, do not support metadata.
 
 How to read a JP2 or JPX image
 ------------------------------

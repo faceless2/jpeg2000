@@ -60,7 +60,7 @@ public class ImageReaderImpl extends ImageReaderSpi
     @Override
     public String getDescription(Locale locale)
     {
-        return "JPEG2000 ImageIO Support";
+        return "JPEG2000 ImageIO Reader Support";
     }
 
 }
